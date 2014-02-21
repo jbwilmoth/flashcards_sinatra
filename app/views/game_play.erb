@@ -4,11 +4,20 @@
   <form name="flashcard" method="POST" action="/<%=params[:deck_name]%>/<%=params[:card_number]%>">
     <fieldset>
       <legend>Let's Play!</legend>
+
+      <p>
+        <%if@correct == false%>
+          <h2>you're wrong</h2>
+        <%end%>
+      </p>
+
+
     	  <div><%=@deck[params[:card_number].to_i].question%></div><br>
     	  <label for="answer">Answer:</label><br>
     	  <input type="text" name="answer" id="answer">
     	  <input type="reset" value="Reset"/>
     	  <input type="submit" value="Submit"/>
+        <input style="display: none" name="question" value="<%=@deck[params[:card_number].to_i].question%>">
     </fieldset>
   </form>
 </div>
