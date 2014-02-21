@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Deckname</h1>
+  <h3 style="float:right;">Score: <%= "Score Here" %></h3>
+  <form name="flashcard" method="GET" action="/deckname">
+    <fieldset>
+      <legend>Let's Play!</legend>
+  	  <div><%= "Question Here" %></div><br>
+  	  <label for="answer">Answer:</label><br>
+  	  <input type="text" name="answer" id="answer">
+  	  <input type="reset" value="Reset"/>
+  	  <input type="submit" value="Submit"/>
+    </fieldset>
+  </form>
+</div>
