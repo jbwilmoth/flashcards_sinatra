@@ -1,14 +1,11 @@
 <div class="container">
-  <h1>DeckName</h1>
-  <h3>Score: <%= "Score Here" %></h3>
-  <form name="flashcard" method="GET" action="/deckname">
+  <h2>Game Over</h2>
+  <form name="game_over" method="POST" action="/start/deck_name">
     <fieldset>
-      <legend>Let's Play!</legend>
-  	  <div><%= "Question Here" %></div><br>
-  	  <label for="answer">Answer:</label><br>
-  	  <input type="text" name="answer" id="answer">
-  	  <input type="reset" value="Reset"/>
-  	  <input type="submit" value="Submit"/>
+      <legend>Thanks for playing</legend>
+        <h4><p>Choose an option:</p></h4>
+        <p><input type="submit" value="Replay"/></p>
+        <p><input type="submit" value="Quit"/></p>
     </fieldset>
-  </form>
+  <a href="/">Home</a>
 </div>

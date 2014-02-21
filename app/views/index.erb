@@ -1,7 +1,18 @@
 <div class="container">
   <h1>Flashcards!</h1>
-
-  <a href="/deck_names"><%= "Deck Here" %></a>   
+  <form name="decklist" method="GET" action="/deck-names">
+    <fieldset>
+      <legend>Choose a deck</legend>
+      <h4>Login Here:</h4>
+      <p>Username: <input type="text" name="username"/>
+      <p>Password: <input type="password" name="password"/>
+      <p>Decks:
+      <select name="deck">
+        <option value="1">Deck 1</option>
+      </select></p>
+      <input type="submit" value="Start Game"/>
+    </fieldset>
+  </form>   
+<a href="/">Home</a>
 </div>
 
-<a href="/">Home</a>
