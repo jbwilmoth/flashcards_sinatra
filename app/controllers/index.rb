@@ -1,27 +1,41 @@
 get '/' do
   @deck_names = []
   Deck.all.each{|deck| @deck_names << deck.name}
-  erb :test_index
+  erb :index
 end
 
-get '/start/:deck_name' do
-  erb :test_start
-end
-
-
-get '/:deck_name' do
-  @deck = Deck.find_by_name(params[:deck_name]).cards
-  @deck_name = @deck.name
-  erb :test_game
+get '/:deck_name/start' do
+  erb :start
 end
 
 get '/:deck_name/end' do
-
+  "You feeenished"
 end
+
+get '/:deck_name/:card_number' do
+  @deck = Deck.find_by_name(params[:deck_name]).cards
+
+  if params[:card_number].to_i >= @deck.length
+    redirect "/#{params[:deck_name]}/end"
+  end
+
+  erb :game_play
+end
+
+
 #POST===========================================
 
 
-post '/:deck_name' do
+post '/start/' do
+  @name = params[:name]
+  redirect '/start/#{@name}'
 
 
+end
+
+post '/:deck_name/:card_number' do
+  # @card = Card.find_by_name()
+  num = params[:card_number].to_i
+  num += 1
+  redirect "/#{params[:deck_name]}/#{num}"
 end
