@@ -1,5 +1,10 @@
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+  @deck_names = []
+  Deck.all.each{|deck| @deck_names << deck.name}
+  # binding.pry
+  erb :test_index
 end
-salaslkjafsljk
+
+get 'start' do
+
+end
