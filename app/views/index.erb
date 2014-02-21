@@ -1,14 +1,14 @@
-<div class="container">
+<div>
   <h1>Flashcards!</h1>
   <form name="decklist" method="POST" action="/start/">
     <fieldset>
       <legend>Login Here:</legend>
       <!-- <p>Username: <input type="text" name="username"/>
       <p>Password: <input type="password" name="password"/> -->
-        <p>Decks: <br>
+        <p>Decks:</p>
 
         <%@deck_names.each do |deck|%>
-          <a href="/<%=deck%>/start"><%=deck%></a><br>
+          <a href="/<%=deck%>/start"><%=deck%></a>
         <%end%>
     </fieldset>
   </form>
