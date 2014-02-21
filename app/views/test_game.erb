@@ -1,0 +1,20 @@
+<div class="container">
+  <h2><%=@deck_name%></h2>
+  <br>
+  <br>
+  This is where the game actually happens.
+  <%@deck.each do |card|%>
+    <h1><%=card.question%></h1>
+  <%end%>
+
+  <br>
+  <br>
+  Question goes here
+  <br>
+  Form goes here
+  <br>
+  <br>
+  some buttons that do various things.  yay.
+</div>
+
+
