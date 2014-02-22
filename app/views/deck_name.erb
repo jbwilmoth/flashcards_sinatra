@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Deckname</h1>
-  <h3 style="float:right;">Score: <%= "Score Here" %></h3>
+  <h3>Score: <%= <%=params[:card_number]%></h3>
+  <body>
   <form name="flashcard" method="GET" action="/deckname">
     <fieldset>
       <legend>Let's Play!</legend>
@@ -11,4 +12,5 @@
   	  <input type="submit" value="Submit"/>
     </fieldset>
   </form>
+</body>
 </div>
