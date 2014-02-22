@@ -5,3 +5,5 @@ animals = Deck.create(name: "Animals")
 cereals = Deck.create(name: "Cereals")
   cereals.cards << Card.create(question: "Honeynut cheerio's spokes-animal?", answer:"Bee")
   cereals.cards << Card.create(question: "Who wants the trix?", answer:"Rabbit")
+
+User.create(first_name: "Test", last_name: "Icle", email: "me@email.com", password: "123")
