@@ -9,7 +9,7 @@ get '/:deck_name/start' do
 end
 
 get '/:deck_name/end' do
-  "You feeenished"
+  erb :end
 end
 
 get "/:deck_name/:card_number" do
