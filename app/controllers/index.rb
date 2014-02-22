@@ -6,7 +6,7 @@ end
 
 get '/create_user' do
 
-erb :create_user
+  erb :create_user
 end
 
 get '/:deck_name/start' do
@@ -24,6 +24,11 @@ end
 
 
 #POST===========================================
+post '/stat/' do
+
+end
+
+
 post '/create_user' do
   User.create(params[:user])
   # binding.pry
