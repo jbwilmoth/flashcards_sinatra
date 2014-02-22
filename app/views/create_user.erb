@@ -1,10 +1,14 @@
 <div class="container">
-  <p>Please input your information:</p>
-  <form method="POST" action="/create_user"><br>
+	<p>Please input your information:</p>
+  <form method="POST" action="/creation/validate_user"><br>
     First Name: <input type="text" name="user[first_name]"><br>
     Last Name: <input type="text" name="user[last_name]"><br>
-    Email: <input type="text" name="user[email]"><br>
-    Password: <input type="text" name="user[password]"><br>
+    Email: <input type="text" name="user[email]" value="<%if @errors%>
+		Invalid email<%end%>"><br>
+    Password: <input type="password" name="user[password]"><br>
     <input type="submit">
   </form>
+
+  <a href="/">Home</a>
 </div>
+	
