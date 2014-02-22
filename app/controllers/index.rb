@@ -12,6 +12,14 @@ get '/home_page' do
   "signed in"
 end
 
+get '/end' do 
+  if params[:quit]
+    redirect '/'
+  elsif params[:replay]
+    erb :start
+  end
+end
+
 get '/:deck_name/start' do
   erb :start
 end
