@@ -1,16 +1,14 @@
-<div>
-  <h1><%= @deck.name %></h1>
-  <h3>Score: <%= "Score Here" %></h3>
+<div class="container">
+  <h1><%= @deck.name.downcase + "." %></h1>
+  <p><h4>Let's Play!</h4></p>
   <form name="flashcard" method="POST" action="/<%= params[:deck_name] %>/<%= params[:card_number] %>">
     <fieldset>
-      <legend>Let's Play!</legend>
-      <p>
-        <% if @correct == false %>
-          <h2>You're Wrong</h2>
-        <% end %>
-      </p>
-    	  <div><%= @deck[params[:card_number].to_i].question %></div><br>
-    	  <label for="answer">Answer:</label><br>
+      <legend><h3>Score: <%= "xxx" %></h3></legend><br>
+      <% if @correct == false %>
+          <p><h2>You're Wrong</h2></p>
+      <% end %>
+    	  <div><h5><%= @deck[params[:card_number].to_i].question %></h5></div><br>
+    	  <label for="answer">Answer:</label>
     	  <input type="text" name="answer" id="answer"/>
     	  <input type="reset" value="Reset"/>
     	  <input type="submit" value="Submit"/>
