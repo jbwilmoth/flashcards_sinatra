@@ -1,10 +1,10 @@
 <div class="container">
   <h1>gameOver.</h1>
-  <form name="game_over" method="POST" action="/start/deck_name">
+  <form name="game_over" method="POST" action="/<%=params[:deck_name]%>/start">
     <fieldset>
       <legend><h4>Thanks for Playing!</h4></legend><br>
         <h5><p>Choose an option:</p></h5>
-      <p><input type="submit" value="Replay"/>
+      <p><input type="submit" value="Replay" action="/start/<%=params[:deck_name]%>"/>
       <input type="submit" value="Quit"/></p>
     </fieldset>
   <a href="/"><h6>Home</h6></a>

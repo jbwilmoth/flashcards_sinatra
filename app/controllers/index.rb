@@ -5,7 +5,6 @@ get '/' do
 end
 
 get '/create_user' do
-
   erb :create_user
 end
 
@@ -22,6 +21,10 @@ get "/:deck_name/:card_number" do
   erb :game_play
 end
 
+get '/home_page' do
+  "signed in"
+end
+
 
 #POST===========================================
 post '/stat/' do
@@ -32,6 +35,7 @@ end
 post '/create_user' do
   User.create(params[:user])
   # binding.pry
+  erb :creation_page
 end
 
 

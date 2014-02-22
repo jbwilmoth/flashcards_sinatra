@@ -5,6 +5,7 @@
       <legend><h5>Login Here:</h5></legend><br />
       <p>Username: <input type="text" name="username"/></p>
       <p>Password: <input type="password" name="password"/></p>
+      <input type="submit" value="Login" action="/home_page">
         <blockquote>Click a category below to head to the start page..</blockquote>
         <h5>Decks:</h5>
         <%@deck_names.each do |deck|%>
@@ -12,5 +13,6 @@
         <% end %>
     </fieldset>
   </form>
+  <a href="/create_user">Create User</a>
 </div>
 
