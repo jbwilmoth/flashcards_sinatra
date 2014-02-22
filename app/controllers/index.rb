@@ -8,6 +8,10 @@ get '/create_user' do
   erb :create_user
 end
 
+get '/home_page' do
+  "signed in"
+end
+
 get '/:deck_name/start' do
   erb :start
 end
@@ -21,11 +25,9 @@ get "/:deck_name/:card_number" do
   erb :game_play
 end
 
-get '/home_page' do
-  "signed in"
-end
 
 
+#We can store the decks, scores, other things in the session
 #POST===========================================
 post '/stat/' do
 
