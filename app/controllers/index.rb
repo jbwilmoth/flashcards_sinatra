@@ -18,7 +18,7 @@ get '/logout' do
   redirect '/'
 end
 
-get '/end' do 
+get '/end' do
   if params[:quit]
     redirect '/'
   elsif params[:replay]
@@ -51,7 +51,7 @@ post '/validate_user' do
   @user = User.find_by_email(params[:email])
 
   if @user
-    if @user.password == params[:password]      
+    if @user.password == params[:password]
       session[:current_user] = @user.id
       erb :profile_page
     else
@@ -72,7 +72,7 @@ post '/creation/validate_user' do
   Deck.all.each{|deck| @deck_names << deck.name}
 
   @user = User.new(email: params[:email])
-  binding.pry
+  # binding.pry
   if @user.valid?
     @user.save
     session[:current_user] = @user.id
