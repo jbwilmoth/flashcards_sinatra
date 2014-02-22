@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= @deck.name.downcase + "." %></h1>
   <p><h4>Let's Play!</h4></p>
-  <form name="flashcard" method="POST" action="/<%= params[:deck_name] %>/<%= params[:card_number] %>">
+  <form name="flashcard" method="POST">
     <fieldset>
       <legend><h3>Score: <%=params[:card_number]%></h3></legend><br>
       <% if @correct == false %>
@@ -10,9 +10,12 @@
         <div><h5><%= @deck[params[:card_number].to_i].question %></h5></div><br>
         <label for="answer">Answer:</label>
         <input type="text" name="answer" id="answer"/>
-        <input type="reset" value="Reset"/>
-        <input type="submit" value="Submit"/>
+
+        <input type="submit" value="Submit" action="/<%= params[:deck_name] %>/<%= params[:card_number] %>"/>
         <input style="display: none" name="question" value="<%= @deck[params[:card_number].to_i].question %>"/>
     </fieldset>
+  </form>
+  <form name="reset" method="GET" action="/<%= params[:deck_name]%>/start">
+    <input type="submit" value="Reset"/>
   </form>
 </div>

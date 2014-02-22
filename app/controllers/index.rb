@@ -27,6 +27,7 @@ get '/end' do
 end
 
 get '/:deck_name/start' do
+  session[:deck_name] = params[:deck_name]
   erb :start
 end
 
@@ -53,6 +54,8 @@ post '/validate_user' do
   if @user
     if @user.password == params[:password]
       session[:current_user] = @user.id
+      # session[:high_score] = @score
+      # session[:]
       erb :profile_page
     else
       @wrong_password = true
@@ -71,7 +74,7 @@ post '/creation/validate_user' do
   @deck_names = []
   Deck.all.each{|deck| @deck_names << deck.name}
 
-  @user = User.new(email: params[:email])
+  @user = User.new(params[:user])
   # binding.pry
   if @user.valid?
     @user.save
@@ -83,7 +86,7 @@ post '/creation/validate_user' do
   end
 end
 
-post '/:deck_name/:card_number' do
+post "/:deck_name/:card_number" do
   @deck = Deck.find_by_name(params[:deck_name]).cards
   @num = params[:card_number].to_i
   card = Card.find_by_question(params[:question])
