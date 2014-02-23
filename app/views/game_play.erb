@@ -1,29 +1,26 @@
-<div class="container">
-
-  <p><h4>Let's Play!</h4></p>
+<div class="container column">
+  <h1>flashCards.</h1>
+  <p><h2 class="subheader">Let's Play!</h2></p>
   <form name="flashcard" method="POST">
     <fieldset>
-      <legend><h3>Score: <%=session[:current_score]%> </h3></legend><br>
-
+      <legend><h3>Score: <%= session[:current_score] %> </h3></legend>
       <% if session[:correct] == nil %>
-          <p><h2>Good Luck!!</h2></p>
+          <p><h5>Good Luck!!</h5></p>
       <% end %>
       <% if session[:correct] == false %>
-          <p><h2>Wrong, the correct answer was <%=session[:right_answer]%></h2></p>
+          <p><h5>Totally not right, the answer is <%= session[:right_answer] %></h5></p>
       <% end %>      
       <% if session[:correct] == true %>
-          <p><h2>Good Job</h2></p>
+          <p><h5>Good Job!</h5></p>
       <% end %>
-
-        <div><h5><%= @deck[params[:card_number].to_i].question %></h5></div><br>
+        <div><h4><%= @deck[params[:card_number].to_i].question %></h4></div><br>
         <label for="answer">Answer:</label>
         <input type="text" name="answer" id="answer"/>
-
         <input type="submit" value="Submit" action="/<%= params[:deck_name] %>/<%= params[:card_number] %>"/>
         <input style="display: none" name="question" value="<%= @deck[params[:card_number].to_i].question %>"/>
     </fieldset>
   </form>
-  <form name="reset" method="GET" action="/<%= params[:deck_name]%>/start">
+  <form name="reset" method="GET" action="/<%= params[:deck_name] %>/start">
     <input type="submit" value="Restart"/>
   </form>
 </div>

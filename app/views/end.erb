@@ -1,12 +1,11 @@
-<div class="container">
+<div class="container column">
   <h1>gameOver.</h1>
   <form name="game_over" method="GET" action="/end">
     <fieldset>
-      <legend><h4>Thanks for Playing, <%=@deck.name.capitalize%>!</h4></legend><br>
+      <legend><h4 class="subheader">Thanks for Playing, <%= @deck.name.capitalize %>!</h4></legend><br />
         <h5><p>Choose an option:</p></h5>
       <input type="submit" name="replay" value="Replay"/>
       <input type="submit" name="quit" value="Quit"/>
     </fieldset>
-
-    <h5>score: <%=session[:current_score]%> out of <%=@deck.cards.length%></h5>
+    <h5>score: <%= session[:current_score] %> out of <%= @deck.cards.length %></h5>
 </div>

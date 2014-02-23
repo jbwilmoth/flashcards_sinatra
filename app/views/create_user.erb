@@ -1,15 +1,17 @@
-<div class="container">
-	<p>Please input your information:</p>
+<div class="container column">
+  <h1>createUser.</h1>
   <form method="POST" action="/creation/validate_user">
-    First Name: <input type="text" name="user[first_name]" value="<%if @errors%><%=@user.first_name%><%end%>">
-    Last Name: <input type="text" name="user[last_name]" value="<%if @errors%><%=@user.last_name%><%end%>">
-    Email: <input type="text" name="user[email]" value="<%if @errors%>
-		Invalid email<%end%>">
-    Password: <input type="password" name="user[password]">
-    Confirm Password: <input type="password" name="user[password_confirmation]">
-    <input type="submit">
+    <fieldset>
+      <legend><p>Please input your information:</p></legend><br />
+      First Name: <input type="text" name="user[first_name]" value="<% if @errors %><%= @user.first_name %><% end %>">
+      Last Name: <input type="text" name="user[last_name]" value="<% if @errors %><%= @user.last_name %><% end %>">
+      Email: <input type="text" name="user[email]" value="<% if @errors %>
+		  Invalid email<% end %>">
+      Password: <input type="password" name="user[password]">
+      Confirm Password: <input type="password" name="user[password_confirmation]">
+      <input type="submit">
+    </fieldset>
   </form>
-
-  <a href="/">Home</a>
+  <a href="/"><h4>Home</h4></a>
 </div>
 
