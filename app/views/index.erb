@@ -4,6 +4,8 @@
     <fieldset>
       <%if @wrong_password%><h3>Incorrect Password</h3><%end%>
       <%if @no_user%><h3>No user exists</h3><%end%>
+      <%if @two_users%><h3>Someone already logged in</h3><%end%>
+      <%if @same_user%><h3>You are already logged in</h3><%end%>
       <legend><h5>Login Here:</h5></legend><br />
       <p>Email: <input type="text" name="email" value="<%if @wrong_password%><%=@user.email%><%end%>"></p>
       <p>Password: <input type="password" name="password"/></p>
