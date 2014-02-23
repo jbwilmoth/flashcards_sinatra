@@ -3,7 +3,8 @@
   <p><h4>Let's Play!</h4></p>
   <form name="flashcard" method="POST">
     <fieldset>
-      <legend><h3>Score: <%=@score%></h3></legend><br>
+      <legend><h3>Score: <%=session[:current_score]%> </h3></legend><br>
+
       <% if session[:correct] == false %>
           <p><h2>You're Wrong</h2></p>
       <% end %>
