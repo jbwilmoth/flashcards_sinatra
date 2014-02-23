@@ -1,11 +1,11 @@
 
 animals = Deck.create(name: "Animals")
+  animals.cards << Card.create(question: "What animal is slang for marijuana in Norway? Also, the inspiration behind the song 'What does the Fox say?'", answer: "Fox")
   animals.cards << Card.create(question: "What goes go 'Woof'?", answer:"Dog")
   animals.cards << Card.create(question: "What goes go 'Oink'?", answer:"Pig")
   animals.cards << Card.create(question: "What goes go 'Moo'?", answer:"Cow")
   animals.cards << Card.create(question: "What goes go 'Ow Ow Ow'?", answer:"Seal")
   animals.cards << Card.create(question: "What goes go 'Blub'?", answer:"Fish")
-
 
 cereals = Deck.create(name: "Cereals")
   cereals.cards << Card.create(question: "Honeynut cheerio's spokes-animal?", answer:"Bee")

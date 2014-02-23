@@ -10,7 +10,7 @@
         <p>Email: <input type="text" name="email" value="<% if @wrong_password %><%= @user.email %><% end %>"></p>
         <p>Password: <input type="password" name="password"/></p>
         <input type="submit" value="Login">
-          <blockquote>Click a category below to head to the start page..</blockquote>
+          <blockquote>Click a deck below and teleport to the start page..</blockquote>
       <h5>Decks:</h5>
       <% @deck_names.each do |deck| %>
         <a href="/<%= deck %>/start"><h6><%= deck %></h6></a>
