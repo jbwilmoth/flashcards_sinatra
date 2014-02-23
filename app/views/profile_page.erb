@@ -2,12 +2,9 @@
   <h1>Hello <%= @user.first_name%>!</h1>
 
 <h2>High Scores</h2>
-<table>
-  <ol>
-    <li></li>
-    <li></li>
-  </ol>
-</table>
+	<%@high_scores.each do |score|%>
+		<h4><%=score.deck_name%>: <%=score.score%></h4>	
+	<%end%>
 
 
 

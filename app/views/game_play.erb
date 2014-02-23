@@ -5,8 +5,14 @@
     <fieldset>
       <legend><h3>Score: <%=session[:current_score]%> </h3></legend><br>
 
+      <% if session[:correct] == nil %>
+          <p><h2>Good Luck!!</h2></p>
+      <% end %>
       <% if session[:correct] == false %>
-          <p><h2>You're Wrong</h2></p>
+          <p><h2>Wrong, the correct answer was <%=session[:right_answer]%></h2></p>
+      <% end %>      
+      <% if session[:correct] == true %>
+          <p><h2>Good Job</h2></p>
       <% end %>
 
         <div><h5><%= @deck[params[:card_number].to_i].question %></h5></div><br>

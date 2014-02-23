@@ -10,6 +10,7 @@ end
 
 get '/profile_page' do
   @user = User.find(session[:current_user])
+  @high_scores = Score.where(user_id: @user.id).order('score').reverse
   erb :profile_page
 end
 
@@ -22,24 +23,27 @@ get '/end' do
   if params[:quit]
     redirect '/'
   elsif params[:replay]
+    session[:current_score] = 0
+    session[:correct] = nil
     erb :start
   end
 end
 
 get '/:deck_name/start' do
-  # session[:current_deck_name] = Deck.find_by_name(params[:deck_name])
+  session[:deck_name] = params[:deck_name]
+  session[:correct] = nil
   session[:current_score] = 0
   erb :start
 end
 
 get '/:deck_name/end' do
+  @deck = Deck.find_by_name(params[:deck_name])
   erb :end
 end
 
 get "/:deck_name/:card_number" do
   @deck = Deck.find_by_name(params[:deck_name]).cards
   @score = session[:current_score]
-  # binding.pry
   erb :game_play
 end
 
@@ -52,7 +56,7 @@ post '/validate_user' do
   @deck_names = []
   Deck.all.each{|deck| @deck_names << deck.name}
 
-  @user = User.find_or_initialize_by_email(params[:email])
+  @user = User.find_by_email(params[:email])
 
   if session[:current_user]
 
@@ -101,27 +105,21 @@ post "/:deck_name/:card_number" do
   card = Card.find_by_question(params[:question])
 
   if params[:answer].downcase == card.answer.downcase
-    # @deck_name = params[:deck_name]
     @num += 1
-
-    # binding.pry
     session[:current_score] += 1
-    erb :game_play
-
-    # binding.pry
     session[:correct] = true
-    if @num >= @deck.length
-      redirect "/#{params[:deck_name]}/end"
-    end
   else
     @num += 1
-    # @correct = false
     session[:correct] = false
-    # erb :game_play
-
-    if @num >= @deck.length
-      redirect "/#{params[:deck_name]}/end"
-    end
+    session[:right_answer] = card.answer    
   end
-  redirect "/#{params[:deck_name]}/#{@num}"
+
+  if @num >= @deck.length
+    if session[:current_user]
+      Score.create(deck_name: params[:deck_name], user_id: session[:current_user], score: session[:current_score])
+    end
+    redirect "/#{params[:deck_name]}/end"
+  else
+    redirect "/#{params[:deck_name]}/#{@num}"
+  end
 end
