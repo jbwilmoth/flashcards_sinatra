@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container column">
   <h1>gameOver.</h1>
-  <form name="game_over" method="POST" action="/<%=params[:deck_name]%>/start">
+  <form name="game_over" method="GET" action="/end">
     <fieldset>
-      <legend><h4>Thanks for Playing!</h4></legend><br>
+      <legend><h4 class="subheader">Thanks for Playing, <%= @deck.name.capitalize %>!</h4></legend><br />
         <h5><p>Choose an option:</p></h5>
-      <p><input type="submit" value="Replay" action="/start/<%=params[:deck_name]%>"/>
-      <input type="submit" value="Quit"/></p>
+      <input type="submit" name="replay" value="Replay"/>
+      <input type="submit" name="quit" value="Quit"/>
     </fieldset>
-  <a href="/"><h6>Home</h6></a>
+    <h5>score: <%= session[:current_score] %> out of <%= @deck.cards.length %></h5>
 </div>

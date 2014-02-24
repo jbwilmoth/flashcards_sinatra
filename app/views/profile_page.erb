@@ -1,0 +1,9 @@
+<div class="container column">
+  <h1>Hello <%= @user.first_name %>!</h1>
+  <h2>High Scores</h2>
+	<% @high_scores.each do |score| %>
+		<h4><%= score.deck_name %>: <%= score.score %></h4>	
+	<% end %><br />
+  <a href="/"><h6>Home<h6></a>
+  <a href="/logout"><h6>Logout</h6></a>
+</div>
